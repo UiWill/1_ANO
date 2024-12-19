@@ -59,11 +59,11 @@ body, html {
 }
 
 .letter-container {
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
-    width: 400px; /* Largura do envelope */
-    height: 550px; /* Altura do envelope */
-    margin: 60px auto; /* Espaçamento ao redor */
+    width: 500px; /* Largura do envelope */
+    height: 700px; /* Altura do envelope */
+    margin: 10px auto; /* Espaçamento ao redor */
     z-index: 1;
 }
 
