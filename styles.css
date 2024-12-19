@@ -312,8 +312,9 @@ button {
     }
 
     .letter-container {
-        width: 300px; /* Reduz um pouco o tamanho do envelope */
-        height: 200px;
+        width: 90%; /* Ocupa 90% da largura da tela */
+        max-width: 600px; /* Limita o tamanho máximo */
+        height: auto; /* Ajusta a altura proporcionalmente */
     }
 
     button {
