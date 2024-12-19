@@ -28,14 +28,21 @@
                             <p>Com todo o meu coração,</p>
                             <p>Seu para sempre apaixonado 💙</p>
                         </div>
-                        
                     </div>
                 </div>
-                <button id="open-letter">💌 Abrir Carta</button>
+                <button id="open-letter" onclick="zoomInLetter()">💌 Abrir Carta</button>
             </div>
         </div>
-        
     </div>
+
+    <script>
+   function zoomInLetter() {
+    const letter = document.getElementById("letter");
+    // Alterna a classe de zoom
+    letter.classList.toggle("zoom");
+}
+
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

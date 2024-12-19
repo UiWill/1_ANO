@@ -89,37 +89,10 @@ body, html {
     z-index: 2;
 }
 
-/* Adicionando dobraduras na carta */
-.envelope::before,
-.envelope::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, #f3c68a, #f9d49e);
-    z-index: 0;
-    transform-origin: top center;
-    border-bottom: 2px solid #e3a86c;
-}
-
-.envelope::before {
-    top: 0;
-    transform: rotateX(0deg);
-    transition: transform 0.5s ease-in-out;
-}
-
-.envelope::after {
-    bottom: 0;
-    transform: rotateX(0deg);
-    transition: transform 0.5s ease-in-out;
-}
-
-.envelope.open::before {
-    transform: rotateX(-90deg);
-}
-
-.envelope.open::after {
-    transform: rotateX(90deg);
+/* Efeito de zoom */
+.letter.zoom {
+    transform: scale(1.5); /* Altere o valor do zoom conforme necessário */
+    transition: transform 1s ease-in-out; /* Suaviza o zoom */
 }
 
 .tracking-in-expand {
@@ -152,7 +125,7 @@ body, html {
         opacity: 1;
     }
 }
-/* Estilizando o botão de abrir carta */
+
 button {
     padding: 25px 50px;
     font-size: 2.5em;
@@ -164,6 +137,7 @@ button {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     animation: jello-horizontal 0.9s infinite both; /* Animação sempre ativa */
 }
+
 
 /* Incluindo a animação jello-horizontal */
 @-webkit-keyframes jello-horizontal {
@@ -281,6 +255,9 @@ button {
     overflow-y: auto;
     transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
     scroll-behavior: smooth;
+}
+.letter.zoom {
+    transform: scale(1.2); /* Ajuste o valor para o tamanho desejado */
 }
 
 .envelope.open .letter {
