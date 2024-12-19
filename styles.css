@@ -301,3 +301,41 @@ button {
     min-height: 800px; /* Garante espaço para o conteúdo */
     margin: 0;
 }
+/* Ajustes para telas menores que 768px (tamanho típico de smartphones) */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 1.5em; /* Título maior para melhor leitura */
+    }
+
+    .timer {
+        font-size: 1.2em; /* Ajusta o tamanho do texto do cronômetro */
+    }
+
+    .letter-container {
+        width: 300px; /* Reduz um pouco o tamanho do envelope */
+        height: 200px;
+    }
+
+    button {
+        font-size: 1em; /* Torna o texto do botão maior */
+        padding: 12px 20px; /* Mais espaçamento no botão */
+    }
+
+    .envelope {
+        border-radius: 8px; /* Bordas mais suaves */
+    }
+
+    .text p {
+        font-size: 0.9em; /* Texto da carta mais legível */
+        line-height: 1.5; /* Espaçamento maior entre linhas */
+    }
+
+    .slideshow img {
+        object-fit: cover;
+    }
+
+    .background {
+        height: auto; /* Permite ajuste automático na altura */
+    }
+}
+
