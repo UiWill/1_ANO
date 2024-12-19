@@ -1,0 +1,303 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: black;
+}
+
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slideshow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: slide 20s infinite;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    animation: fade 10s infinite;
+}
+
+.slideshow img:nth-child(1) {
+    animation-delay: 0s; /* Primeira imagem começa imediatamente */
+}
+
+.slideshow img:nth-child(2) {
+    animation-delay: 5s; /* Segunda imagem começa após 10 segundos */
+}
+
+.slideshow img:nth-child(3) {
+    animation-delay: 10s; /* Terceira imagem começa após 20 segundos */
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0; }   /* Invisível no início e no final */
+    30%, 70% { opacity: 1; }   /* Visível de 30% a 70% */
+}
+.content {
+    position: relative;
+    z-index: 2; /* Garante que o cronômetro esteja acima do fundo */
+    text-align: center;
+    color: white;
+}
+
+.timer {
+    font-size: 1.5em;
+    margin: 10px 0;
+    z-index: 3; /* Garante que o cronômetro sempre apareça no topo */
+}
+
+.letter-container {
+    margin-top: 20px;
+    position: relative;
+    width: 400px; /* Largura do envelope */
+    height: 250px; /* Altura do envelope */
+    margin: 60px auto; /* Espaçamento ao redor */
+    z-index: 1;
+}
+
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #f9d49e, #f3c68a); /* Tom degradê */
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 -3px 8px rgba(0, 0, 0, 0.1); /* Sombra externa e interna */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+    border: 2px solid #e3a86c; /* Borda para detalhe */
+    position: relative;
+}
+
+.envelope.open {
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+/* Adicionando dobraduras na carta */
+.envelope::before,
+.envelope::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, #f3c68a, #f9d49e);
+    z-index: 0;
+    transform-origin: top center;
+    border-bottom: 2px solid #e3a86c;
+}
+
+.envelope::before {
+    top: 0;
+    transform: rotateX(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope::after {
+    bottom: 0;
+    transform: rotateX(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope.open::before {
+    transform: rotateX(-90deg);
+}
+
+.envelope.open::after {
+    transform: rotateX(90deg);
+}
+
+.tracking-in-expand {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/* Animação */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Estilizando o botão de abrir carta */
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #f4a261;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    animation: jello-horizontal 0.9s infinite both; /* Animação sempre ativa */
+}
+
+/* Incluindo a animação jello-horizontal */
+@-webkit-keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes jello-horizontal {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+.tracking-in-expand-fwd {
+    -webkit-animation: tracking-in-expand-fwd 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand-fwd 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+/* Animação */
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+                transform: translateZ(-700px);
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        opacity: 1;
+    }
+}
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+                transform: translateZ(-700px);
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+
+.letter {
+    position: absolute;
+    width: 90%; /* Ajusta para se adequar ao envelope */
+    height: 90%;
+    background: #fffbf1;
+    border: 1px solid #e0c097;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 20px;
+    transform: translateY(200px);
+    opacity: 0;
+    overflow-y: auto;
+    transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+    scroll-behavior: smooth;
+}
+
+.envelope.open .letter {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text {
+    font-family: 'Cursive', serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #4a4a4a;
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+    padding: 10px;
+    border: 1px solid #c0a16b;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    min-height: 800px; /* Garante espaço para o conteúdo */
+    margin: 0;
+}
