@@ -62,7 +62,7 @@ body, html {
     margin-top: 20px;
     position: relative;
     width: 400px; /* Largura do envelope */
-    height: 250px; /* Altura do envelope */
+    height: 550px; /* Altura do envelope */
     margin: 60px auto; /* Espaçamento ao redor */
     z-index: 1;
 }
@@ -154,8 +154,8 @@ body, html {
 }
 /* Estilizando o botão de abrir carta */
 button {
-    padding: 10px 20px;
-    font-size: 1.2em;
+    padding: 25px 50px;
+    font-size: 2.5em;
     cursor: pointer;
     background-color: #f4a261;
     color: white;
